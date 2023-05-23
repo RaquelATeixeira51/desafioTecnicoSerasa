@@ -17,8 +17,8 @@ public class Hospede {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
-    private int documento;
-    private int telefone;
+    private String documento;
+    private String telefone;
     private String dataNascimento;
 
     @OneToMany(mappedBy = "hospede")
