@@ -10,7 +10,7 @@ id SERIAL PRIMARY KEY,
 nome VARCHAR(255) NOT NULL,
 documento INTEGER NOT NULL,
 telefone INTEGER NOT NULL,
-data_nascimento DATE NOT NULL
+data_nascimento VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE checkin (
