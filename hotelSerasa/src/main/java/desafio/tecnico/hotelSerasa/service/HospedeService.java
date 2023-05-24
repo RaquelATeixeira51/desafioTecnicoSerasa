@@ -29,7 +29,7 @@ public class HospedeService {
         }
 
         if (!hospede.getDataNascimento().matches("\\d{2}/\\d{2}/\\d{4}")) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Formato inválido para data de nascimento. Utilize o formato dd/mm/yyyy");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Formato inválido para data de nascimento.");
         }
     }
 
