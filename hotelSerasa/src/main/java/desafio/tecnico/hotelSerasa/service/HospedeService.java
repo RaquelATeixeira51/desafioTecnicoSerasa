@@ -1,6 +1,7 @@
 package desafio.tecnico.hotelSerasa.service;
 
 import desafio.tecnico.hotelSerasa.model.Hospede;
+import desafio.tecnico.hotelSerasa.model.HospedeDto;
 import desafio.tecnico.hotelSerasa.repository.HospedeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,11 +22,11 @@ public class HospedeService {
         return hospedeRepository.save(hospede);
     }
 
-    public List<Hospede> listarHospedesCheckOut() {
+    public List<HospedeDto> listarHospedesCheckOut() {
         return hospedeRepository.findAllHospedesCheckOut();
     }
 
-    public List<Hospede> listarHospedesNoHotel() {
+    public List<HospedeDto> listarHospedesNoHotel() {
         return hospedeRepository.findAllHospedesNoHotel();
     }
 

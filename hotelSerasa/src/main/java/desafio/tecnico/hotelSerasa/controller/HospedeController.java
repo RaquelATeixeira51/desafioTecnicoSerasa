@@ -1,6 +1,7 @@
 package desafio.tecnico.hotelSerasa.controller;
 
 import desafio.tecnico.hotelSerasa.model.Hospede;
+import desafio.tecnico.hotelSerasa.model.HospedeDto;
 import desafio.tecnico.hotelSerasa.repository.HospedeRepository;
 import desafio.tecnico.hotelSerasa.service.HospedeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,13 @@ public class HospedeController {
 
     @GetMapping("hospedesCheckOut")
     @ResponseStatus(HttpStatus.OK)
-    public List<Hospede> buscarHospedeCheckOut() {
+    public List<HospedeDto> buscarHospedeCheckOut() {
         return hospedeService.listarHospedesCheckOut();
     }
 
     @GetMapping("hospedesNoHotel")
     @ResponseStatus(HttpStatus.OK)
-    public List<Hospede> buscarHospedeNohotel() {
+    public List<HospedeDto> buscarHospedeNohotel() {
         return hospedeService.listarHospedesNoHotel();
     }
 }
