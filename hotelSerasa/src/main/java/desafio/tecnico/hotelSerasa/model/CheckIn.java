@@ -21,10 +21,10 @@ public class CheckIn {
     private long id;
 
     @Column(name = "data_entrada")
-    private String dataEntrada;
+    private Date dataEntrada = new Date();
 
     @Column(name = "data_saida")
-    private String dataSaida;
+    private Date dataSaida;
 
     @Column(name = "adicional_veiculo")
     private boolean adicionalVeiculo;

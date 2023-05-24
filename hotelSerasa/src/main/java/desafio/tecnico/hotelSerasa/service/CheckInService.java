@@ -19,7 +19,6 @@ public class CheckInService {
     private CheckInRepository checkInRepository;
 
     public CheckIn realizarCheckIn(String nome, String documento, String telefone, CheckIn checkIn) {
-        validarDadosCheckIn(checkIn);
         Hospede hospede = buscarHospede(nome, documento, telefone);
         checkIn.setHospede(hospede);
 
@@ -28,21 +27,6 @@ public class CheckInService {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao realizar o check-in", e);
         }
-    }
-
-    private void validarDadosCheckIn(CheckIn checkIn) {
-        if (!validarFormatoDataHora(checkIn.getDataEntrada())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Formato inválido para a data de entrada");
-        }
-
-        if (!validarFormatoDataHora(checkIn.getDataSaida())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Formato inválido para a data de saída");
-        }
-    }
-
-    private boolean validarFormatoDataHora(String dataHora) {
-        String regex = "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$";
-        return Pattern.matches(regex, dataHora);
     }
 
     private Hospede buscarHospede(String nome, String documento, String telefone) {
