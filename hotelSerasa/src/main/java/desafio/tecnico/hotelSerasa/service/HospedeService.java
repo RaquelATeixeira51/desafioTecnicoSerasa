@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Service
 public class HospedeService {
     @Autowired
@@ -17,6 +19,14 @@ public class HospedeService {
         validarExistenciaHospede(hospede);
 
         return hospedeRepository.save(hospede);
+    }
+
+    public List<Hospede> listarHospedesCheckOut() {
+        return hospedeRepository.findAllHospedesCheckOut();
+    }
+
+    public List<Hospede> listarHospedesNoHotel() {
+        return hospedeRepository.findAllHospedesNoHotel();
     }
 
     private void validarDadosHospede(Hospede hospede) {

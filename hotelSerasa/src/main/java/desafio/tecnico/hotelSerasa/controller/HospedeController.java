@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("hospede/")
 public class HospedeController {
@@ -18,5 +20,17 @@ public class HospedeController {
     @ResponseStatus(HttpStatus.CREATED)
     public Hospede criarHospede(@RequestBody Hospede hospede){
         return hospedeService.criarHospede(hospede);
+    }
+
+    @GetMapping("hospedesCheckOut")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Hospede> buscarHospedeCheckOut() {
+        return hospedeService.listarHospedesCheckOut();
+    }
+
+    @GetMapping("hospedesNoHotel")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Hospede> buscarHospedeNohotel() {
+        return hospedeService.listarHospedesNoHotel();
     }
 }
