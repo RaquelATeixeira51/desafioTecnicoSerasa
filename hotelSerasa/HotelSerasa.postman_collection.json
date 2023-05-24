@@ -123,6 +123,57 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8080/checkIn/deleteCheckIn/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/checkIn/deleteCheckIn/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkIn",
+						"deleteCheckIn",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/hospede/update/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Fulano da Silva 5\",\n    \"documento\": \"12343466382\",\n    \"telefone\": \"1193854520112\",\n    \"dataNascimento\":\"17/02/2004\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/hospede/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hospede",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
