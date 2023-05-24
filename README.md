@@ -15,8 +15,8 @@ CREATE TABLE hospede (
 
 CREATE TABLE checkin (
   id SERIAL PRIMARY KEY,
-  data_entrada DATE NOT NULL,
-  data_saida DATE NOT NULL,
+  data_entrada VARCHAR(255) NOT NULL,
+  data_saida VARCHAR(255) NOT NULL,
   adicional_veiculo BOOLEAN NOT NULL,
   valor DOUBLE PRECISION NOT NULL,
   hospede_id INTEGER REFERENCES hospede (id)
