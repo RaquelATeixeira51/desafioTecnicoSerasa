@@ -6,10 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-
-import java.text.SimpleDateFormat;
 
 @RestController
 @RequestMapping("hospede/")
@@ -22,8 +18,14 @@ public class HospedeController {
     public Hospede criarHospede(@RequestBody Hospede hospede){
         Hospede existingHospede = hospedeRepository.findByDocumento(hospede.getDocumento());
         if(existingHospede != null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Hospede já cadastrado");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Hospede já cadastrado com este documento");
         }
+
+        existingHospede = hospedeRepository.findByTelefone(hospede.getTelefone());
+        if(existingHospede != null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Hospede já cadastrado com este telefone");
+        }
+
         return hospedeRepository.save(hospede);
     }
 }
