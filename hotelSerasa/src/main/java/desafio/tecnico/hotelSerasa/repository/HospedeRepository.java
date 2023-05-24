@@ -6,8 +6,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface HospedeRepository extends JpaRepository<Hospede, Long> {
-    Hospede findByDocumento(String documento);
-    Hospede findByTelefone(String telefone);
-    @Query("SELECT h FROM Hospede h WHERE h.nome = :string OR h.documento = :string OR h.telefone = :string")
-    Hospede findByNomeDocumentoTelefone(@Param("string") String string);
+    @Query("SELECT h FROM Hospede h WHERE h.nome = :nome OR h.documento = :documento OR h.telefone = :telefone")
+    Hospede findByNomeDocumentoTelefone(
+            @Param("nome") String nome,
+            @Param("documento") String documento,
+            @Param("telefone") String telefone
+    );
+
+    @Query("SELECT h FROM Hospede h WHERE h.nome = :nome AND h.documento = :documento AND h.telefone = :telefone")
+    Hospede findByNomeDocumentoTelefoneCheckIn(
+            @Param("nome") String nome,
+            @Param("documento") String documento,
+            @Param("telefone") String telefone
+    );
 }

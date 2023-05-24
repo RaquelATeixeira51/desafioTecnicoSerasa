@@ -19,8 +19,8 @@ public class CheckInController {
 
     @PostMapping("realizarCheckIn")
     @ResponseStatus(HttpStatus.CREATED)
-    public CheckIn realizarCheckIn(@RequestParam String string, @RequestBody CheckIn checkIn){
-        Hospede checkHospede = hospedeRepository.findByNomeDocumentoTelefone(string);
+    public CheckIn realizarCheckIn(@RequestParam String nome, @RequestParam String documento, @RequestParam String telefone,@RequestBody CheckIn checkIn){
+        Hospede checkHospede = hospedeRepository.findByNomeDocumentoTelefoneCheckIn(nome, documento, telefone);
         if (checkHospede == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Hospede nao encontrado");
         }
