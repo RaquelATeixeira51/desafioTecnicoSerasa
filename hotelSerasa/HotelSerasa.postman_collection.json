@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "788ded58-4607-4f5a-8eca-fbb082e5239a",
+		"name": "HotelSerasa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21779711"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/hospede/criarHospede",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Fulano da Silva 3\",\n    \"documento\": \"1234346638\",\n    \"telefone\": \"119385452012\",\n    \"dataNascimento\":\"17/02/2004\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/hospede/criarHospede",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hospede",
+						"criarHospede"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataSaida\": \"2023-05-25T17:00:00\",\n    \"adicionalVeiculo\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/checkIn/realizarCheckIn?nome=Fulano da Silva 3&documento=1234346638&telefone=119385452012",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkIn",
+						"realizarCheckIn"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "Fulano da Silva 3"
+						},
+						{
+							"key": "documento",
+							"value": "1234346638"
+						},
+						{
+							"key": "telefone",
+							"value": "119385452012"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/hospede/hospedesCheckOut",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hospede/hospedesCheckOut",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hospede",
+						"hospedesCheckOut"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/hospede/hospedesNoHotel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hospede/hospedesNoHotel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hospede",
+						"hospedesNoHotel"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
