@@ -5,10 +5,12 @@ import desafio.tecnico.hotelSerasa.model.HospedeDto;
 import desafio.tecnico.hotelSerasa.repository.HospedeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HospedeService {
@@ -24,6 +26,24 @@ public class HospedeService {
 
     public List<HospedeDto> listarHospedesCheckOut() {
         return hospedeRepository.findAllHospedesCheckOut();
+    }
+
+    public ResponseEntity<Hospede> atuelizaHospede(Long id, Hospede updatedHospede) {
+        Optional<Hospede> optionalHospede = hospedeRepository.findById(id);
+
+        if (optionalHospede.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Hospede hospede = optionalHospede.get();
+        hospede.setDocumento(updatedHospede.getDocumento());
+        hospede.setTelefone(updatedHospede.getTelefone());
+        hospede.setDataNascimento(updatedHospede.getDataNascimento());
+        hospede.setNome(updatedHospede.getNome());
+
+        hospedeRepository.save(hospede);
+
+        return ResponseEntity.ok(hospede);
     }
 
     public List<HospedeDto> listarHospedesNoHotel() {

@@ -7,11 +7,14 @@ import desafio.tecnico.hotelSerasa.repository.HospedeRepository;
 import org.hibernate.annotations.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
@@ -33,6 +36,18 @@ public class CheckInService {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro ao realizar o check-in", e);
         }
+    }
+
+    public ResponseEntity<Optional<CheckIn>> deleteCheckIn(Long id) {
+        Optional<CheckIn> existingCheckIn = checkInRepository.findById(id);
+
+        if(existingCheckIn == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não existe");
+        }
+
+        checkInRepository.deleteById(id);
+
+        return ResponseEntity.ok(existingCheckIn);
     }
 
     public void setValorCheckIn(CheckIn checkIn) {

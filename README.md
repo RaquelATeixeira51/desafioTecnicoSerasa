@@ -67,3 +67,21 @@ rota para trazer os hospedes que nao estao mais no hotel, nao recebe parametro.
 ### /hospede/hospedesNoHotel
 
 rota para trazer os hospedes que ainda estao no hotel, nao recebe parametro.
+
+### /checkIn/deleteCheckIn/1
+
+rota para deletar um checkIn, recebe id como parametro na rota
+
+### /hospede/update/1
+
+rota para atualizar hospede, recebe body com objeto de hospede como parametro
+
+```
+{
+    "nome": "Fulano da Silva 5",
+    "documento": "12343466382",
+    "telefone": "1193854520112",
+    "dataNascimento":"17/02/2004"
+}
+```
+
