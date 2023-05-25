@@ -68,11 +68,11 @@ rota para trazer os hospedes que nao estao mais no hotel, nao recebe parametro.
 
 rota para trazer os hospedes que ainda estao no hotel, nao recebe parametro.
 
-### /checkIn/deleteCheckIn/1
+### /checkIn/deleteCheckIn/{id}
 
 rota para deletar um checkIn, recebe id como parametro na rota
 
-### /hospede/update/1
+### /hospede/update/{id}
 
 rota para atualizar hospede, recebe body com objeto de hospede como parametro
 
