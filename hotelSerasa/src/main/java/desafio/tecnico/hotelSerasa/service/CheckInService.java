@@ -42,7 +42,7 @@ public class CheckInService {
         Optional<CheckIn> existingCheckIn = checkInRepository.findById(id);
 
         if(existingCheckIn == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário não existe");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Check in nao existe");
         }
 
         checkInRepository.deleteById(id);
